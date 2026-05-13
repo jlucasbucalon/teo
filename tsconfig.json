@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    // ── Layout ──────────────────────────────────────────
+    "rootDir": ".",
+    "outDir": "./dist",
+
+    // ── Ambiente: Node.js + CommonJS ────────────────────
+    "module": "node20",
+    "moduleResolution": "node16",
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "types": ["node"],
+
+    // ── Outputs ─────────────────────────────────────────
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "resolveJsonModule": true,
+
+    // ── Rigor de tipos ──────────────────────────────────
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // ── Interop ─────────────────────────────────────────
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "isolatedModules": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/aios.ts",
+    "src/teo.ts",
+    "src/codex/graph.ts",
+    "src/codex/nodes.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
+}

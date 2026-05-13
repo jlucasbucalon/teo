@@ -1,0 +1,8 @@
+node_modules/
+memory/chatCache/
+LLM/ia_local.json
+.env
+.vscode/
+*.log
+npm-debug.log
+.DS_Store

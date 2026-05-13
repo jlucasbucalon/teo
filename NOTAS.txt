@@ -1,0 +1,66 @@
+
+ESTRUTURA FINAL
+═══════════════════════════════════════════════════════════════════════════
+
+TEO/
+│  │
+│  ├─ src/
+│  ├─ aios.ts                          ← Bootstrap (na raiz)
+│  ├─ graph.ts                         ← LangGraph pipeline (na raiz)
+│  ├─ nodes.ts                         ← Nós reutilizáveis (na raiz)
+│  ├─ teo.ts                           ← Bridge CLI/API (na raiz)
+│  ├─ core/                         ← Núcleo do sistema
+│  │  ├─ types.ts                   (tipos globais: OpenAIMessage, Modo)
+│  │  ├─ prompt.ts                  (SYSTEM_PROMPT centralizado)
+│  │  ├─ realtime.ts                (hora, clima, geo, feriados)
+│  │  ├─ understand.ts              (classificação: classificarRapido)
+│  │  ├─ reasoning.ts               (modos raciocínio: rápido/profundo)
+│  │  ├─ embed.ts                   (geração de embeddings)
+│  │  └─ embedCache.ts              (cache 1 hora)
+│  │
+│  ├─ agents/                       ← Agentes especializados
+│  │  ├─ agenteTeo.ts               (agente geral)
+│  │  ├─ agenteProgramacao.ts       (especialista em código)
+│  │  └─ agenteTrainer.ts           (aprendizado)
+│  │
+│  ├─ kernel/                       ← Orquestrador central
+│  │  └─ kernel.ts                  (buildKernelContext, decidaPrioridade, task queue)
+│  │
+│  ├─ memory/                       <- Pasta onde fica os arquivos de lembrança, aprendizado e conversas
+│  │  ├─ chatCach/                  <- Pasta onde fica as conversas
+│  │  │  └─ ... .json               <- conversas geradas chat_001.json ...
+│  │  ├─ trainer/                   <- Pasta onde fica os arquivos de treinamento para ficar mais inteligente
+│  │  │  └─ nichos/                 <- Pasta onde fica os arquivos de cada nicho
+│  │  │     └─ ... .md              <- Pasta onde os arquivos .md de aprendisagem
+│  │  └─ context.log                <- Pasta onde fica os logs do que o teo entendeu de cada input
+│  │
+│  ├─ codex/                       ← Persistência
+│  │  ├─ userProfile.ts             (perfil do usuário)
+│  │  ├─ systemState.ts             (estado do SO: uptime, agentes, ferramentas)
+│  │  └─ osTools.ts                 (I/O: filesystem, variáveis ambiente)
+│  │
+│  ├─ tools/                        ← Utilitários
+│  │  ├─ buscaWeb.ts                (busca em tempo real)
+│  │  └─ executeCode.ts             (executa código)
+│  │
+│  ├─ system/                        ← Utilitários
+│  │  ├─ nichos.ts                  (carregar especialidades)
+│  │  └─ hardware.ts                (detecção local + remota)
+│  │
+│  ├─ chat/                         ← Sistema de chat
+│  │  └─ modules.ts                 (CRUD chats + interpretar comandos)
+│  │
+│  ├─ terminal/                     ← Interface CLI
+│  │  ├─ cli.ts                     (readline loop)
+│  │  └─ ui.ts                      (rendering terminal)
+│  │
+│  └─ server/                       ← API HTTP
+│     ├─ api.ts                     (Express + SSE)
+│     └─ index.ts                   (entry point)
+│
+├─ .env
+├─ tsconfig.json
+├─ package.json
+├─ package-lock.json
+├─ .gitignore
+└─ README.md
